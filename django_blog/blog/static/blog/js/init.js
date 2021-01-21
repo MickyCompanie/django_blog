@@ -201,10 +201,7 @@ $(document).ready(function(){
         }
     });
     
-    $('form').submit(function(event) {
-        event.preventDefault();
-        return false;
-    })
+    
 
     // ONEPAGER //
     $('a.page-scroll').on('click', function(event){

@@ -16,6 +16,12 @@
         </header>
 
          <!-- ___________________________________ POSTS ___________________________________ -->
+
+         {% if messages %}
+            {% for message in messages %}
+                <u><div class="alert alert{{ message.tag }} text-center">{{ message }}</div></u>
+            {% endfor %}
+        {% endif %}
         
         <section>
             <div class="section-inner">
