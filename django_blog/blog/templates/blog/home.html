@@ -15,13 +15,15 @@
             </div>
         </header>
 
-         <!-- ___________________________________ POSTS ___________________________________ -->
+         <!-- ___________________________________ MESSAGES ___________________________________ -->
 
          {% if messages %}
             {% for message in messages %}
-                <u><div class="alert alert{{ message.tag }} text-center">{{ message }}</div></u>
+                <u><div class="alert alert-block alert-{{ message.tag }} text-center">{{ message }}</div></u>
             {% endfor %}
         {% endif %}
+
+        <!-- ___________________________________ POSTS ___________________________________ -->
         
         <section>
             <div class="section-inner">

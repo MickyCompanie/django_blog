@@ -5,10 +5,20 @@
 <header id="headerwrap" class="backstretched">
     <div class="container vertical-center">
         <div class="intro-text vertical-center text-center smoothie">
-            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">Register</div>
+            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">Login</div>
         </div>
     </div>
 </header>
+
+<!-- ___________________________________ MESSAGE ___________________________________ -->
+
+{% if messages %}
+    {% for message in messages %}
+        <u><div class="alert alert-block alert-{{ message.tag }} text-center">{{ message }}</div></u>
+    {% endfor %}
+{% endif %}
+
+<!-- ___________________________________ FORM ___________________________________ -->
 
 <section id="welcome">
     <div class="section-inner">
@@ -30,23 +40,24 @@
                         <input class="btn btn-primary mt30 btn-white pull-right" type="submit"  />
                     </div>
                     <div class="col-md-6 mx-auto text-right">
-                            Already have an accout? <u><a href="{% url 'register' %}" class="ml-2"> Sign in</a></u> 
+                            Already have an accout? <u><a href="#" class="ml-2"> Sign in</a></u> 
                     </div>
                 </form>--> 
 
                 <form method="POST">
                     {% csrf_token %}
                     <fieldset class="form-group">
-                        <legend class="border-bottom mb4">Join Today</legend>
+                        <legend class="border-bottom mb4">Login</legend>
                         {{ form|crispy }}
                     </fieldset>
                     <fieldset class="form-group">
-                        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+                        <button class="btn btn-outline-info" type="submit">Login</button>
                     </fieldset>
                 </form>
                 <div class="col-md-6 mx-auto text-right">
-                    Already have an accout? <u><a href="{% url 'register' %}" class="ml-2"> Sign in</a></u> 
+                    Need an accout? <u><a href="{% url 'register' %}" class="ml-2"> Sign up now</a></u> 
                 </div>
+
             </div>
         </div>
     </div>
