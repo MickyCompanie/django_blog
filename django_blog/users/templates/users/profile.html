@@ -4,19 +4,48 @@
 <header id="headerwrap" class="backstretched">
     <div class="container vertical-center">
         <div class="intro-text vertical-center text-center smoothie">
-            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">Logout</div>
+            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">{{ user.username }}'s Profile</div>
         </div>
     </div>
 </header>
 
-<section id="welcome">
-    <div class="section-inner mt5">
+<section>
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
 
-        <div class="container mx-auto my30">
-            <div class="col-md-12 mx-auto">
-                <h2>{{ user.username }}</h2>
+                
+                
+                <div class="col-sm-4 blog-item mb100 wow match-height">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="hover-item mb30">
+                                <img src="{{ user.profile.image.url }}" class="img-responsive smoothie" alt="profile picture">
+                                <div class="overlay-item-caption smoothie"></div>
+                            </div>
+                            <h2 class="post-title">{{ user.username }}</h2>
+                            <div class="item-metas text-muted mb30">
+                                <span class="meta-item"><i class="pe-icon pe-7s-timer"></i> SINCE <span>{{ user.date_joined|date:"d/m/y" }}</span></span>
+                                <!--<span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>{{ post.author }}</span></span> -->
+                                {% if user.email %}
+                                <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> EMAIL <span>{{ user.email }}</span></span>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+                <!-- ___________________________________ FORM ___________________________________ -->
+
+            <div class="row paging text-center">
+                <a class="btn btn-primary mt30" href="#">Older Posts</a>
             </div>
         </div>
+    </div>
+</section>
 
     </div>
 </section>
