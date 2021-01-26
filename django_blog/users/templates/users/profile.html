@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 
 <header id="headerwrap" class="backstretched">
@@ -8,6 +9,14 @@
         </div>
     </div>
 </header>
+
+<!-- ___________________________________ MESSAGES ___________________________________ -->
+
+{% if messages %}
+{% for message in messages %}
+    <u><div class="alert alert-block alert-{{ message.tag }} text-center">{{ message }}</div></u>
+{% endfor %}
+{% endif %}
 
 <section>
     <div class="section-inner">
@@ -40,9 +49,19 @@
 
                 <!-- ___________________________________ FORM ___________________________________ -->
 
-            <div class="row paging text-center">
-                <a class="btn btn-primary mt30" href="#">Older Posts</a>
-            </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb4">Profile Info</legend>
+                    {{ u_form|crispy }}
+                    {{ p_form|crispy }}
+                </fieldset>
+                <fieldset class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </fieldset>
+            </form>
+
+
         </div>
     </div>
 </section>
