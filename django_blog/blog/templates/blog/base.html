@@ -40,14 +40,14 @@
 
         <div class="preloader">
             <div class="preloader-img">
-                <span class="loading-animation animate-flicker"><img src="{% static 'blog/img/loading.GIF' %}s" alt="loading"/></span>
+                <span class="loading-animation animate-flicker"><p>Loading ...</p></span>
             </div>
         </div>
 
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-fixed-top fadeInDown" data-wow-delay="0.5s">
             <div class="container">
-                <!-- Brand and toggle get grouped for better mobile display -->
+                
                 <div class="navbar-header page-scroll">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
                         <span class="sr-only">Toggle navigation</span>
@@ -59,7 +59,6 @@
                     <a class="navbar-brand smoothie logo logo-dark" href="{% url 'blog-home' %}"><img src="{% static 'blog/img/logo_reverse.png' %}" alt="logo"></a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="main-navigation">
                     <ul class="nav navbar-nav navbar-right">
                         
@@ -69,6 +68,13 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="{% url 'profile' %}">Profile</a></li>
                                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Post <span class="pe-7s-angle-down"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{% url 'post-create' %}">Create a Post</a></li>
                             </ul>
                         </li>
                         
@@ -84,19 +90,13 @@
 
                         {% endif %}
 
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">Menu <span class="pe-7s-angle-down"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="index-shop.html">Home Shop</a></li>
-                                <li><a href="single-product.html">Single Product</a></li>
-                            </ul>
-                        </li>
+                        
                     </ul>
                 </div>
-                <!-- /.navbar-collapse -->
             </div>
-            <!-- /.container-fluid -->
         </nav>
+
+        <!-- ______________________________________ BODY ____________________________________ -->
         
         {% block content %}
         {% endblock content %}

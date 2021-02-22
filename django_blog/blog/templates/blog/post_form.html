@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<header id="headerwrap" class="backstretched">
+    <div class="container vertical-center">
+        <div class="intro-text vertical-center text-center smoothie">
+            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">Create a Post</div>
+        </div>
+    </div>
+</header>
+
+<section id="welcome">
+    <div class="section-inner">
+
+        <div class="container mx-auto my30">
+            <div class="col-md-12 mx-auto">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb4">Blog Post</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Post</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

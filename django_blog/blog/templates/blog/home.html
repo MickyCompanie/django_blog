@@ -39,7 +39,7 @@
                                         <img src="{% static 'blog/img/news/1.jpg' %}" class="img-responsive smoothie" alt="title">
                                         <div class="overlay-item-caption smoothie"></div>
                                         <div class="hover-item-caption smoothie">
-                                            <h3 class="vertical-center smoothie"><a href="single-post-right-sidebar.html" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                            <h3 class="vertical-center smoothie"><a href="{% url 'post-detail' post.id %}" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
                                         </div>
                                     </div>
                                     <h2 class="post-title">{{ post.title }}</h2>
@@ -49,7 +49,7 @@
                                         <span class="meta-item"><i class="pe-icon pe-7s-comment"></i> COMMENTS <span>3</span></span>
                                     </div>
                                     <p>{{ post.content }}</p>
-                                    <a class="btn btn-primary mt30" href="single-post-right-sidebar.html">Read More</a>
+                                    <a class="btn btn-primary mt30" href="{% url 'post-detail' post.id %}">Read More</a>
                                 </div>
                             </div>
                         </div>

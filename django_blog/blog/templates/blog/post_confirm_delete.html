@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<header id="headerwrap" class="backstretched">
+    <div class="container vertical-center">
+        <div class="intro-text vertical-center text-center smoothie">
+            <div class="intro-heading wow heading-font" data-wow-delay="0.2s">Delete a Post</div>
+        </div>
+    </div>
+</header>
+
+<section id="welcome">
+    <div class="section-inner">
+
+        <div class="container mx-auto my30">
+            <div class="col-md-12 mx-auto">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb4">Delete Post</legend>
+                        <h2>are you sure you want to delete the post "{{ object.title }}"</h2>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                        <a href="{% url 'post-detail' object.id %}" class="btn btn-outline-secondary">Cancel</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
