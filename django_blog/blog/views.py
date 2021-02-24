@@ -3,7 +3,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 
-# Create your views here.}
+ 
+
 
 def home(request):
     return render(request, 'blog/home.html', {'posts': Post.objects.all()[::-1], 'title': 'Home'})
@@ -23,7 +24,7 @@ class PostDetailView(DetailView):
     
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'image']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -31,7 +32,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields = ['title', 'content']
+    fields = ['title', 'content', 'image']
     
     def form_valid(self, form):
         form.instance.author = self.request.user
